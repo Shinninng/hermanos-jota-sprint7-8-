@@ -26,3 +26,9 @@ mongoose
   
 import usuariosRoutes from './routes/usuarios.js';
 app.use('/api/usuarios', usuariosRoutes);
+
+import productosRoutes from './routes/productos.js';
+app.use('/api/productos', productosRoutes);
+
+import carritoRoutes from './routes/carrito.js';
+app.use('/api/carrito', carritoRoutes);

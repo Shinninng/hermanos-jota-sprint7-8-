@@ -21,8 +21,8 @@ La aplicación incluye persistencia de datos en **MongoDB Atlas**, endpoints RES
 
 ## Enlaces de despliegue
 - **Repositorio GitHub**: [hermanos-jota-sprint7-8-](https://github.com/mariacristinazerdanalzogaraiz-alt/hermanos-jota-sprint7-8-)  
-- **Frontend (Vercel)**: [_hermanosjota_ ](https://hermanos-jota-sprint7-8.vercel.app/) 
-- **Backend (Render)**: _pendiente de despliegue_  
+- **Frontend (Vercel)**: [_Vercel-HermanosJota_ ](https://hermanos-jota-sprint7-8.vercel.app/) 
+- **Backend (Render)**: _[Render-HermanosJota](https://hermanos-jota-sprint7-8.onrender.com)_  
 
 ---
 

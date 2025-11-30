@@ -20,7 +20,7 @@ const Register = () => {
         });
     };
 
-    const hadleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
@@ -31,7 +31,8 @@ const Register = () => {
                 contraseña: formData.password
             };
 
-            const response = await axios.post('http://localhost:5000/api/usuarios/registro', datosParaBackend);
+            const apiUrl = `${import.meta.env.VITE_API_URL}/api/usuarios/registro`;
+            const response = await axios.post(apiUrl, datosParaBackend);
             console.log('Respuesta del server:', response.data);
             alert('¡Usuario registrado con éxito!');
             navigate('/login');
@@ -50,7 +51,7 @@ const Register = () => {
             <h2>Crear Cuenta</h2>
             {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
 
-            <form onSubmit={hadleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className='form-group'>
                     <label>Nombre Completo</label>
                     <input 
@@ -89,4 +90,3 @@ const Register = () => {
 };
 
 export default Register;
-

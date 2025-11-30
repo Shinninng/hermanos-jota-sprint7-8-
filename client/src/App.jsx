@@ -1,20 +1,48 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Register from './pages/Registro';
+=======
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
+import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home';
+import Productos from './pages/Productos';
+import Carrito from './pages/Carrito';
+import Registro from './pages/Registro';
+>>>>>>> 3fb6628 (Modificaciones)
 import Login from './pages/Login';
+import Perfil from './pages/Perfil';
+import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className='App'>
-        <Routes>
-          <Route path="/" element={<h1>Bienvenido a Mueblería Hermanos Jota</h1>} />
-          <Route path="/registro" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <Router>
+      <AuthProvider>
+        <CartProvider>
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/productos" element={<Productos />} />
+              <Route path="/carrito" element={<Carrito />} />
+              <Route path="/registro" element={<Registro />} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/perfil"
+                element={
+                  <ProtectedRoute>
+                    <Perfil />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </main>
+        </CartProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

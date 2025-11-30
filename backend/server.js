@@ -6,9 +6,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const usuariosRoutes = require('./routes/usuarios.js');
-const productosRoutes = require('./routes/productos.js');
-const carritoRoutes = require('./routes/carrito.js');
+const usuariosRoutes_import = require('./routes/usuarios.js');
+const productosRoutes_import = require('./routes/productos.js');
+const carritoRoutes_import = require('./routes/carrito.js');
+
+// Helper para CommonJS y ES Modules
+const unwrap = (m) => m.default || m;
+const usuariosRoutes = unwrap(usuariosRoutes_import);
+const productosRoutes = unwrap(productosRoutes_import);
+const carritoRoutes = unwrap(carritoRoutes_import);
 
 // Inicio app
 const app = express();

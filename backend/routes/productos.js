@@ -36,7 +36,8 @@ router.delete('/:id', async (req, res, next) => {
     if (!productoEliminado) return next(createError(404, 'El producto solicitado no existe'));
     res.json({ message: 'Producto eliminado correctamente' });
   } catch (err) {
-    next(createError(500, 'Error al eliminar el producto'));
+    // Captura errores de base de datos u otros y los pasa al manejador de errores
+    next(err);
   }
 });
 

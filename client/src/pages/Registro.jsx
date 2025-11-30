@@ -31,7 +31,7 @@ const Register = () => {
                 contraseña: formData.password
             };
 
-            const apiUrl = `${import.meta.env.VITE_API_URL}/api/usuarios/registro`;
+            const apiUrl = `${process.env.REACT_APP_API_URL}/api/usuarios/registro`;
             const response = await axios.post(apiUrl, datosParaBackend);
             console.log('Respuesta del server:', response.data);
             alert('¡Usuario registrado con éxito!');

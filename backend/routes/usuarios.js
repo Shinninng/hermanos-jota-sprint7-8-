@@ -23,10 +23,17 @@ router.post('/registro', async (req, res) => {
     const nuevoUsuario = new User({ nombre, email, contraseña });
     await nuevoUsuario.save();
 
-    const token = generarToken(nuevoUsuario._id);
-    res.status(201).json({ usuario: nuevoUsuario, token });
+    const token = generarToken(nuevoUsuario._id); // token ID del nuevo usuario
+    res.status(201).json({
+      _id: nuevoUsuario._id,
+      nombre: nuevoUsuario.nombre,
+      email: nuevoUsuario.email,
+      token
+    });
   } catch (error) {
-    res.status(500).json({ mensaje: 'Error al registrar usuario' });
+    // Más contexto del error en el log
+    console.error('Error en /registro:', error);
+    res.status(500).json({ mensaje: 'Error del servidor al registrar el usuario' });
   }
 });
 
@@ -44,7 +51,9 @@ router.post('/login', async (req, res) => {
     const token = generarToken(usuario._id);
     res.status(200).json({ usuario, token });
   } catch (error) {
-    res.status(500).json({ mensaje: 'Error al iniciar sesión' });
+    // Más contexto del error en el log
+    console.error('Error en /login:', error);
+    res.status(500).json({ mensaje: 'Error del servidor al iniciar sesión' });
   }
 });
 

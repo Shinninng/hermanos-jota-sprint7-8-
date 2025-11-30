@@ -42,8 +42,6 @@ proyecto/
 │
 ├── client/                   # Aplicación React
 │   ├── public/               # Archivos estáticos
-│   │   ├── logo192.png       # Ícono para PWA
-│   │   └── manifest.json     # Manifiesto de la aplicación
 │   ├── src/components/       # Componentes reutilizables
 │   ├── src/pages/            # Páginas con React Router
 │   ├── App.jsx               # Configuración principal

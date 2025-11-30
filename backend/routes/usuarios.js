@@ -1,6 +1,7 @@
 import express from 'express';
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
+import protegerRuta from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
@@ -47,13 +48,11 @@ router.post('/login', async (req, res) => {
   }
 });
 
-export default router;
-
-import protegerRuta from '../middleware/authMiddleware.js';
-
 router.get('/perfil', protegerRuta, (req, res) => {
   res.json({
     mensaje: 'Ruta protegida accedida con éxito',
     usuario: req.usuario
   });
 });
+
+export default router;

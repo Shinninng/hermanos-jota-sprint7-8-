@@ -22,7 +22,7 @@ La aplicación incluye persistencia de datos en **MongoDB Atlas**, endpoints RES
 ## Enlaces de despliegue
 - **Repositorio GitHub**: [hermanos-jota-sprint7-8-](https://github.com/mariacristinazerdanalzogaraiz-alt/hermanos-jota-sprint7-8-)  
 - **Frontend (Vercel)**: _pendiente de despliegue_  
-- **Backend (Render/Railway)**: _pendiente de despliegue_  
+- **Backend (Render)**: _pendiente de despliegue_  
 
 ---
 
@@ -41,10 +41,13 @@ proyecto/
 │   └── .env.example          # Variables de entorno de referencia
 │
 ├── client/                   # Aplicación React
+│   ├── public/               # Archivos estáticos
+│   │   ├── logo192.png       # Ícono para PWA
+│   │   └── manifest.json     # Manifiesto de la aplicación
 │   ├── src/components/       # Componentes reutilizables
 │   ├── src/pages/            # Páginas con React Router
 │   ├── App.jsx               # Configuración principal
-│   └── main.jsx              # Punto de entrada
+│   └── index.js              # Punto de entrada
 │
 └── README.md                 # Documentación principal
 ```
@@ -112,7 +115,7 @@ DELETE /api/productos/:id → Eliminar producto
 
 POST /api/usuarios/register → Registro de usuario
 
-POST /api/usuarios/login → Login y obtención de token
+POST /api/usuarios/login → Login y obtención de token JWT
 
 GET /api/carrito → Ver carrito del usuario
 

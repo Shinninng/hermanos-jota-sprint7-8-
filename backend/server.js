@@ -1,34 +1,42 @@
+// Configuración inicial
+const dotenv = require("dotenv");
+dotenv.config(); // Carga variables lo antes posible
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv");
 
-dotenv.config();
+const usuariosRoutes = require('./routes/usuarios.js');
+const productosRoutes = require('./routes/productos.js');
+const carritoRoutes = require('./routes/carrito.js');
+
+// Inicio app
 const app = express();
-app.use(cors());
-app.use(express.json());
+const PORT = process.env.PORT || 5000;
+
+// Middlewares
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173', // URL Vercel
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+app.use(express.json()); 
 
 // Rutas
 app.get("/", (req, res) => {
   res.send("API funcionando");
 });
 
-// Conexión a MongoDB
+app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/productos', productosRoutes);
+app.use('/api/carrito', carritoRoutes);
+
+// Conexión MongoDB y Start
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Conectado a MongoDB");
-    app.listen(process.env.PORT || 5000, () =>
-      console.log("Servidor corriendo en puerto 5000")
-    );
+    // Iniciar servidor dps de conexión exitosa a BD
+    app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
   })
   .catch((err) => console.error(err));
-  
-import usuariosRoutes from './routes/usuarios.js';
-app.use('/api/usuarios', usuariosRoutes);
-
-import productosRoutes from './routes/productos.js';
-app.use('/api/productos', productosRoutes);
-
-import carritoRoutes from './routes/carrito.js';
-app.use('/api/carrito', carritoRoutes);

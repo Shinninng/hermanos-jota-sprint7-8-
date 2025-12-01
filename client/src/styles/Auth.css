@@ -3,18 +3,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: var(--color-background);
   padding: 2rem;
 }
 
 .auth-card {
-  background: white;
+  background: var(--color-card-background);
   padding: 3rem;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 450px;
   animation: slideUp 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @keyframes slideUp {
@@ -30,7 +33,7 @@
 
 .auth-card h2 {
   text-align: center;
-  color: #333;
+  color: var(--color-primary);
   font-size: 2rem;
   margin-bottom: 2rem;
 }
@@ -51,13 +54,13 @@
 
 .auth-card input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.2);
 }
 
 .auth-card button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
   padding: 1rem;
   border-radius: 10px;
@@ -70,7 +73,7 @@
 
 .auth-card button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(160, 82, 45, 0.3);
 }
 
 .auth-card button:disabled {
@@ -81,24 +84,24 @@
 .auth-card p {
   text-align: center;
   margin-top: 1.5rem;
-  color: #666;
+  color: var(--color-text-dark);
 }
 
 .auth-card p a {
-  color: #667eea;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .auth-card p a:hover {
-  color: #764ba2;
+  color: var(--color-secondary-accent);
   text-decoration: underline;
 }
 
 .error {
-  background: #ffe0e0;
-  color: #c41e3a;
+  background: #f8d7da; /* Un rojo pálido estándar */
+  color: #721c24;      /* Un rojo oscuro estándar */
   padding: 1rem;
   border-radius: 8px;
   text-align: center;

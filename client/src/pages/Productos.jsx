@@ -9,7 +9,7 @@ export default function Productos() {
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    api.get('/productos')
+    api.get('/api/productos')
       .then(res => {
         setProductos(res.data);
         setLoading(false);

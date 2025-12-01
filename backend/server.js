@@ -21,10 +21,25 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middlewares
+// (whitelist) para CORS
+const whitelist = [
+  process.env.FRONTEND_URL, // URL Vercel
+  'http://localhost:3000'   // Puertopara Create React App
+].filter(Boolean); // Filtra FRONTEND_URL
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173', // URL Vercel
+  origin: function (origin, callback) {
+    // `!origin` solicitudes sin origen
+    // y whitelist.indexOf(origin) !== -1 permite los orígenes de tu lista.
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por la política de CORS'));
+    }
+  },
   optionsSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
 app.use(express.json()); 
 

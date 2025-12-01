@@ -11,6 +11,13 @@ const [loading, setLoading] = useState(true);
   const isAuthenticated = !!token;
 
   useEffect(() => {
+    if (token) {
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      localStorage.setItem('token', token);
+    } else {
+      delete api.defaults.headers.common['Authorization'];
+      localStorage.removeItem('token');
+    }
 
     if (token && !user) {
       localStorage.setItem('token', token);
@@ -35,7 +42,7 @@ const [loading, setLoading] = useState(true);
       setUser(null);
       setLoading(false);
     }
-  }, [token]);
+  }, [token, user]);
 
   const login = (tokenReceived, userData) => {
     setToken(tokenReceived);

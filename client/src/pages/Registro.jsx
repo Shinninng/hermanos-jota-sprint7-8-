@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { Link, useNavigate } from 'react-router-dom';
 import '../App.css';
 
@@ -31,8 +31,7 @@ const Register = () => {
                 contraseña: formData.password
             };
 
-            const apiUrl = `${process.env.REACT_APP_API_URL}/api/usuarios/registro`;
-            const response = await axios.post(apiUrl, datosParaBackend);
+            const response = await api.post('/api/usuarios/registro', datosParaBackend);
             console.log('Respuesta del server:', response.data);
             alert('¡Usuario registrado con éxito!');
             navigate('/login');

@@ -14,7 +14,7 @@ const [loading, setLoading] = useState(true);
     if (token) {
       localStorage.setItem('token', token);
       // Obtener perfil del usuario
-      api.get('/usuarios/perfil')
+      api.get('/api/usuarios/perfil')
         .then(res => {
           setUser(res.data);
           setLoading(false);
@@ -43,11 +43,13 @@ const login = (tokenReceived, userData) => {
     localStorage.removeItem('token');
   };
 
+  if (loading) {
+    return null; // O un componente de Spinner/Cargando...
+  }
+
   return (
     <AuthContext.Provider value={{ user, token, isAuthenticated, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
 }
-
-

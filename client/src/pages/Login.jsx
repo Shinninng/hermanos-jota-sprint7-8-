@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../services/api'; // 'api'
 import { Link, useNavigate } from 'react-router-dom';
 import '../App.css';
 
@@ -28,7 +28,8 @@ const Login = () => {
                 contraseña: formData.password
             };
 
-            const response = await axios.post('http://localhost:5000/api/usuarios/login', datosParaBackend);
+            // 'api' en lugar de 'axios'
+            const response = await api.post('/api/usuarios/login', datosParaBackend);
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('usuario', JSON.stringify(response.data.usuario));
             alert('¡Inicio de sesión exitoso!');

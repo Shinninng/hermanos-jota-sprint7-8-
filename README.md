@@ -62,7 +62,8 @@ proyecto/
 - dotenv  
 
 **Frontend**  
-- React (Vite)  
+- React (Vite)
+- React (Create React App)  
 - React Router  
 - Formik + Yup  
 - CSS  

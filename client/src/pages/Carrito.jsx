@@ -34,15 +34,15 @@ export default function Carrito() {
 
   if (items.length === 0) {
     return (
-      <div className="carrito-container">
+      <div className="carrito-page-container">
         <h2>Mi Carrito</h2>
-        <p>El carrito está vacío</p>
+        <p className="carrito-vacio-mensaje">El carrito está vacío</p>
       </div>
     );
   }
 
   return (
-    <div className="carrito-container">
+    <div className="carrito-page-container">
       <h2>Mi Carrito</h2>
       <div className="carrito-items">
         {items.map(item => (

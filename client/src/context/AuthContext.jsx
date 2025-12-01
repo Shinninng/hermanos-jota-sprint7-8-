@@ -11,8 +11,10 @@ const [loading, setLoading] = useState(true);
   const isAuthenticated = !!token;
 
   useEffect(() => {
-    if (token) {
+
+    if (token && !user) {
       localStorage.setItem('token', token);
+      
       // Obtener perfil del usuario
       api.get('/api/usuarios/perfil')
         .then(res => {
@@ -25,6 +27,9 @@ const [loading, setLoading] = useState(true);
             localStorage.removeItem('token');
             setLoading(false);
         });
+    } else if (token && user) {
+      
+      setLoading(false);
     } else {
       localStorage.removeItem('token');
       setUser(null);
@@ -32,7 +37,7 @@ const [loading, setLoading] = useState(true);
     }
   }, [token]);
 
-const login = (tokenReceived, userData) => {
+  const login = (tokenReceived, userData) => {
     setToken(tokenReceived);
     setUser(userData);
   };

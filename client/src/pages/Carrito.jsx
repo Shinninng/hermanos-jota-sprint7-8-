@@ -23,7 +23,7 @@ export default function Carrito() {
     }
 
     try {
-      await api.post('/carrito', { items });
+      await api.post('/api/carrito', { items });
       alert('Compra finalizada exitosamente');
       clearCart();
       navigate('/perfil');

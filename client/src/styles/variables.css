@@ -1,0 +1,19 @@
+:root {
+  /* Paleta de Colores Principal */
+  --color-primary: #A0522D;         /* Siena Tostado: Marca, títulos */
+  --color-secondary-accent: #87A96B; /* Verde Salvia: Acento, sustentabilidad */
+  --color-background: #F5E6D3;      /* Alabastro Cálido: Fondos */
+  --color-premium-accent: #D4A437;  /* Vara de Oro: Detalles premium */
+  --color-soft-accent: #C47A6D;      /* Rosa Polvoriento: Acentos suaves */
+
+  /* Colores Neutros y de Texto */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-text-dark: #2c2c2c; /* Un negro no tan puro para mejor legibilidad */
+  --color-text-light: var(--color-background); /* Texto claro para fondos oscuros */
+  --color-card-background: var(--color-white);
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}

@@ -28,7 +28,9 @@ export default function Navbar() {
           {isAuthenticated ? (
             <>
               <li><Link to="/perfil">Mi Perfil</Link></li>
-              <li><button onClick={handleLogout} className="logout-btn">Logout</button></li>
+              <li>
+                <a href="#!" onClick={handleLogout} className="logout-link">Logout</a>
+              </li>
             </>
           ) : (
             <>

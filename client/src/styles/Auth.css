@@ -11,7 +11,7 @@
   background: var(--color-card-background);
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
   width: 100%;
   max-width: 450px;
   animation: slideUp 0.5s ease;
@@ -32,6 +32,9 @@
 }
 
 .auth-card h2 {
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-title);
   text-align: center;
   color: var(--color-primary);
   font-size: 2rem;
@@ -46,7 +49,7 @@
 
 .auth-card input {
   padding: 1rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--color-background);
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -55,7 +58,7 @@
 .auth-card input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.2);
+  box-shadow: 0 0 0 3px var(--color-primary-transparent);
 }
 
 .auth-card button {
@@ -64,8 +67,10 @@
   border: none;
   padding: 1rem;
   border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-button);
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1rem;
@@ -73,7 +78,7 @@
 
 .auth-card button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(160, 82, 45, 0.3);
+  box-shadow: 0 6px 20px var(--color-primary-transparent-strong);
 }
 
 .auth-card button:disabled {
@@ -100,12 +105,12 @@
 }
 
 .error {
-  background: #f8d7da; /* Un rojo pálido estándar */
-  color: #721c24;      /* Un rojo oscuro estándar */
+  background: var(--color-soft-accent);
+  color: var(--color-primary);
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
-  border-left: 4px solid #c41e3a;
+  border-left: 4px solid var(--color-primary);
   margin-bottom: 1rem;
   animation: shake 0.5s ease;
 }

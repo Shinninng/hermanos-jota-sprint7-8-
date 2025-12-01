@@ -20,7 +20,7 @@
 }
 
 .item-cantidad button:hover {
-  background-color: #6f8c55; /* Verde Salvia más oscuro */
+  background-color: var(--color-primary);
 }
 
 .item-cantidad span {
@@ -49,7 +49,7 @@
 }
 
 .remove-btn:hover {
-  background: #b56c60; /* Rosa Polvoriento más oscuro */
+  background: var(--color-primary);
 }
 
 .carrito-resumen {
@@ -72,8 +72,10 @@
   border: none;
   padding: 1rem 3rem;
   border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-button);
   cursor: pointer;
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
   font-size: 1.1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

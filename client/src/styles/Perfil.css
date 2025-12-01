@@ -11,7 +11,7 @@
   background: var(--color-card-background);
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
   width: 100%;
   max-width: 500px;
   animation: fadeIn 0.5s ease;
@@ -29,6 +29,9 @@
 }
 
 .perfil-card h2 {
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-title);
   text-align: center;
   color: var(--color-primary);
   font-size: 2rem;
@@ -70,15 +73,18 @@
   border: none;
   padding: 1rem;
   border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-button);
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .perfil-card .logout-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(196, 122, 109, 0.4);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 768px) {
